@@ -16,5 +16,6 @@
   <licence lien="http://html5up.net/license">CC-By</licence>
   
 	<necessite nom="comments" compatibilite="[3.3.2;[" />
+	<necessite nom="Zcore" compatibilite="[2.5.0;[" />
 
 </paquet>
