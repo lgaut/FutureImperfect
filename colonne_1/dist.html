@@ -1,0 +1,61 @@
+<section id="intro">
+    <a href="#URL_SITE_SPIP" class="logo">
+        #LOGO_SITE_SPIP
+    </a>
+    <header>
+        <h2>#NOM_SITE_SPIP</h2>
+        <p>#DESCRIPTIF_SITE_SPIP</p>
+    </header>
+</section>
+
+
+<section>
+   <h3>Article populaires</h3>
+    <div class="mini-posts">
+       <BOUCLE_hitparade(ARTICLES){par popularite}{inverse}{0,4}>
+        <article class="mini-post">
+           <header>
+            <h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+            <time class="published" datetime="#DATE">[(#DATE|affdate)]</time>
+            <BOUCLE_AUTEUR(AUTEURS){id_article}>
+            <a href="#URL_AUTEUR" class="author">
+               #LOGO_AUTEUR
+            </a>
+            </BOUCLE_AUTEUR>
+            </header>
+            <a href="#URl_ARTICLE" class="image">#LOGO_ARTICLE</a>
+        </article>
+        </BOUCLE_hitparade>
+    </div>
+</section>
+
+
+<section>
+   <h3>Article au hasard</h3>
+    <ul class="posts">
+       <BOUCLE_hasard(ARTICLES){par hasard}{0,5}>
+        <li>
+            <article>
+                <header>
+                    <h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+                    <time class="published" datetime="#DATE">[(#DATE|affdate)]</time>
+                </header>
+                <a href="#URL_ARTICLE" class="image">
+                    [(#LOGO_ARTICLE|image_recadre{64,64})]
+                </a>
+            </article>
+        </li>
+        </BOUCLE_hasard>
+    </ul>
+</section>
+
+
+<section class="blurb">
+    <h2>A propos</h2>
+    <p>#DESCRIPTIF_SITE_SPIP</p>
+    <ul class="actions">
+        <li>
+            <a href="#" class="button">En savoir plus</a>
+        </li>
+    </ul>
+</section>

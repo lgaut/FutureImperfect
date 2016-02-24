@@ -1,0 +1,43 @@
+<BOUCLE_ARTICLES(ARTICLES){par date}{inverse}{tous} {pagination 4}>
+<article class="post">
+    <header>
+        <div class="title">
+            <h2><a href="#URL_ARTICLE">#TITRE</a></h2>
+            <p>#CHAPO</p>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="#DATE|ISO">
+                 [(#DATE*|affdate)] 
+            </time>
+            
+               <BOUCLE_AUTEUR(AUTEURS){id_article}>
+                  <a href="#URL_AUTEUR" class="author">
+                   <span class="name">#NOM</span>
+                   #LOGO_AUTEUR
+                  </a>
+                </BOUCLE_AUTEUR> 
+
+        </div>
+    </header>
+    
+    <a href="#URL_ARTICLE" class="image featured">
+        #LOGO_ARTICLE
+    </a>
+    <p>[(#TEXTE|couper{300})]</p>
+
+    <footer>
+        <ul class="actions">
+            <li>
+                <a href="#URL_ARTICLE">Lire la suite</a>
+            </li>
+        </ul>
+        <ul class="stats">
+            <li><a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">[(#INFO_TITRE{rubrique,#ID_RUBRIQUE})]</a></li>
+            <li><a href="#" class="icon fa-heart">11</a></li>
+            <li><a href="#" class="icon fa-comment">13</a></li>
+        </ul>
+    </footer>
+</article>
+</BOUCLE_ARTICLES>
+#PAGINATION{precedent_suivant}
+</B_ARTICLES>

@@ -1,0 +1,42 @@
+<BOUCLE_ARTICLES(ARTICLES){id_article}>
+<article class="post">
+    <header>
+        <div class="title">
+            <h2><a href="#URL_ARTICLE">#TITRE</a></h2>
+            <p>#CHAPO</p>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="#DATE|ISO">
+                 [(#DATE*|affdate)] 
+            </time>
+            
+               <BOUCLE_AUTEUR(AUTEURS){id_article}>
+                  <a href="#URL_AUTEUR" class="author">
+                   <span class="name">#NOM</span>
+                   #LOGO_AUTEUR
+                  </a>
+                </BOUCLE_AUTEUR> 
+
+        </div>
+    </header>
+    
+    <a href="#URL_ARTICLE" class="image featured">
+        #LOGO_ARTICLE
+    </a>
+    <p>[(#TEXTE)]</p>
+
+   
+   [(#INCLURE{fond=inclure/documents,id_article})]
+   
+    [<footer>
+      <h2><:info_notes:></h2>(#NOTES)
+    </footer>]
+    
+    [(#REM) Forum de l'article
+    NB : pour desactiver les forums de l'article, supprimez simplement la ligne ci-dessous ]
+    <INCLURE{fond=inclure/forum,id_article,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum),repondre_titre=<:repondre_article:>} />
+    
+</article>
+</BOUCLE_ARTICLES>
+
+</B_ARTICLES>

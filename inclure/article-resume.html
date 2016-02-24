@@ -1,0 +1,47 @@
+<BOUCLE_ARTICLES(ARTICLES){id_article}>
+<article class="post">
+    <header>
+        <div class="title">
+            <h2><a href="#URL_ARTICLE">#TITRE</a></h2>
+            <p>#CHAPO</p>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="#DATE|ISO">
+                 [(#DATE*|affdate)] 
+            </time>
+            
+               <BOUCLE_AUTEUR(AUTEURS){id_article}>
+                  <a href="#URL_AUTEUR" class="author">
+                   <span class="name">#NOM</span>
+                   #LOGO_AUTEUR
+                  </a>
+                </BOUCLE_AUTEUR> 
+
+        </div>
+    </header>
+    
+    <a href="#URL_ARTICLE" class="image featured">
+        #LOGO_ARTICLE
+    </a>
+    <p>[(#TEXTE|couper{300})]</p>
+
+    <footer>
+        <ul class="actions">
+            <li>
+                <a href="#URL_ARTICLE">Lire la suite</a>
+            </li>
+        </ul>
+        <ul class="stats">
+            <li><a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">[(#INFO_TITRE{rubrique,#ID_RUBRIQUE})]</a></li>
+            <BOUCLE_nb_commentaires(FORUMS) {id_article}{plat} />  
+                [(#TOTAL_BOUCLE|oui)
+                    <li>
+                    <a[ href="(#URL_ARTICLE|ancre_url{forum})"] class="icon fa-comment nb_commentaires">[(#TOTAL_BOUCLE)]&nbsp;</a>
+                    </li>
+                ]
+	        <//B_nb_commentaires>
+            
+        </ul>
+    </footer>
+</article>
+</BOUCLE_ARTICLES>

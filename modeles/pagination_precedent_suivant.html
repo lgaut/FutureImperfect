@@ -1,0 +1,34 @@
+[(#REM)
+  Copie du 2016-02-23 16:03:31 par webmestre
+  Fichier original prive/modeles/pagination_precedent_suivant.html
+]
+#ENV*{bloc_ancre}
+#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},10}}
+#SET{premiere, #GET{bornes}|reset}
+#SET{derniere, #GET{bornes}|end}
+#SET{sep,#ENV{separateur,' | '}}
+	[<span
+	class='label'>(#ENV{label,''})</span>][
+
+	(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
+
+	]
+	<ul class="actions pagination">
+	[<li
+	class="prev[(#ENV{page_courante}|<={1}|oui)disabled]">(#ENV{url_precedent,#ENV{url}
+	|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
+	|ancre_url{#ENV{ancre}}
+	|lien_ou_expose{#ENV{label_precedent,<:public:page_precedente:>},#ENV{page_courante}|<={1},'lien_pagination','',nofollow}
+	|inserer_attribut{rel,prev}|inserer_attribut{class, previous button big [(#ENV{page_courante}|<={1}|oui)disabled]}
+	)</li>][
+
+	(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
+
+	][<li
+	class="nextpage[(#ENV{page_courante}|>={#ENV{nombre_pages}}|oui)disabled]">(#ENV{url_suivant,#ENV{url}
+	|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
+	|ancre_url{#ENV{ancre}}
+	|lien_ou_expose{#ENV{label_suivant,<:public:page_suivante:>},#ENV{page_courante}|>={#ENV{nombre_pages}},'lien_pagination','',nofollow}
+	|inserer_attribut{rel,next}|inserer_attribut{class, next button big [(#ENV{page_courante}|>={#ENV{nombre_pages}}|oui)disabled]}
+	)</li>]
+</ul>
