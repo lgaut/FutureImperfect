@@ -4,7 +4,7 @@
 	version="0.1"
 	etat="test"
 	compatibilite="[3.0.0;3.1.*]"
-	logo="img/FutureImperfect-32.png"
+	logo="prive/themes/spip/images/FutureImperfect4spip.png"
 	documentation=""
 	demonstration="http://html5up.net/future-imperfect"
 >
