@@ -1,0 +1,20 @@
+<paquet
+	prefix="Future Imperfect"
+	categorie="squelette"
+	version="0.1"
+	etat="test"
+	compatibilite="[3.0.0;3.1.*]"
+	logo="img/FutureImperfect-32.png"
+	documentation=""
+	demonstration="http://html5up.net/future-imperfect"
+>
+
+	<nom>FutureImperfect</nom>
+
+	<auteur>Got</auteur>
+  <auteur lien="http://html5up.net">html5up</auteur>
+  <licence lien="http://html5up.net/license">CC-By</licence>
+  
+	<necessite nom="comments" compatibilite="[3.3.2;[" />
+
+</paquet>
