@@ -1,42 +1,46 @@
-<BOUCLE_ARTICLES(ARTICLES){id_article}>
+<B_ARTICLE>
+<BOUCLE_ARTICLE(ARTICLES){id_article}>
 <article class="post">
     <header>
         <div class="title">
             <h2><a href="#URL_ARTICLE">#TITRE</a></h2>
-            <p>#CHAPO</p>
+            [<p>(#CHAPO)</p>]
         </div>
         <div class="meta">
-            <time class="published" datetime="#DATE|ISO">
+            <time class="published" datetime="[(#DATE|date_iso)]">
                  [(#DATE*|affdate)] 
             </time>
             
                <BOUCLE_AUTEUR(AUTEURS){id_article}>
                   <a href="#URL_AUTEUR" class="author">
-                   <span class="name">#NOM</span>
-                   #LOGO_AUTEUR
+                   <span class="name">[(#NOM)]</span>
+                   [(#LOGO_AUTEUR)]
                   </a>
                 </BOUCLE_AUTEUR> 
 
         </div>
     </header>
-    
-    <a href="#URL_ARTICLE" class="image featured">
-        #LOGO_ARTICLE
-    </a>
-    <p>[(#TEXTE)]</p>
+        [(#LOGO_ARTICLE|extraire_attribut{src}|supprimer_timestamp|balise_img|inserer_attribut{class, image featured})]
+    [(#TEXTE)]
 
+    [<p class="hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+    
+    
    
    [(#INCLURE{fond=inclure/documents,id_article})]
    
-    [<footer>
-      <h2><:info_notes:></h2>(#NOTES)
-    </footer>]
+    <footer>
+      [<h2><:info_ps:></h2>(#PS)]
+      [<h2><:info_notes:></h2><p>(#NOTES)</p>]
+    </footer>
     
-    [(#REM) Forum de l'article
-    NB : pour desactiver les forums de l'article, supprimez simplement la ligne ci-dessous ]
-    <INCLURE{fond=inclure/forum,id_article,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum),repondre_titre=<:repondre_article:>} />
+    <div class="forum">
+        [(#REM) Forum de l'article
+        NB : pour desactiver les forums de l'article, supprimez simplement la ligne ci-dessous ]
+        <INCLURE{fond=inclure/forum,id_article,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum),repondre_titre=<:repondre_article:>} />
+    </div>
     
 </article>
-</BOUCLE_ARTICLES>
+</BOUCLE_ARTICLE>
 
-</B_ARTICLES>
+</B_ARTICLE>

@@ -1,0 +1,18 @@
+<div class="post">
+[(#REM)
+     Est-ce qu'on se connecte a l'espace prive ou pas ?
+]
+[(#ENV{url}|=={''}|?{#SET{prive,' '}})]
+[(#ENV{url}|match{^#EVAL{_DIR_RESTREINT_ABS}}|?{#SET{prive,' '}})]
+
+     <header>
+        <div class="title">
+         [<h2>(#GET{prive}|?{<:login_acces_prive:>,<:lien_connecter:>})</h2>]
+         <p class="soustitre">#NOM_SITE_SPIP</p>
+        </:login_acces_prive:>
+     </header>
+     #MENU_LANG_ECRIRE
+	
+     [(#FORMULAIRE_LOGIN{#ENV{url}|sinon{#URL_ECRIRE{accueil}}})]
+
+</div>

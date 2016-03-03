@@ -3,13 +3,7 @@
     <a href="#URL_SITE_SPIP">#NOM_SITE_SPIP</a>
 </h1>
 <nav class="links">
-    <ul>
-       <BOUCLE_RUBRIQUES(RUBRIQUES)>
-        <li>
-            <a href="#URL_RUBRIQUE" class="#EXPOSE">#TITRE</a>
-        </li>
-        </BOUCLE_RUBRIQUES>
-    </ul>
+    #INCLURE{fond=inclure/menu, env, identifiant=barrenav}
 </nav>
 
 
@@ -18,9 +12,8 @@
     <ul>
         <li class="search">
             <a href="#search" class="fa-search">Rechercher</a>
-                <form id="search" method="get" action="#">
-                    <input type="text" name="recherche" placeholder="Search" />
-                </form>
+
+                #FORMULAIRE_RECHERCHE
         </li>
         <li class="menu">
             <a href="#menu" class="fa-bars">Menu</a>
@@ -31,22 +24,11 @@
 
 <section id="menu">
   <section>
-    <form class="search" method="get" action="#">
-        <input type="text" name="query" placeholder="Search" />
-    </form>
+    #FORMULAIRE_RECHERCHE
   </section>
   
    <section>
-    <ul class="links">
-       <BOUCLE_MENU_COTE(RUBRIQUES)>
-        <li>
-            <a href="#URL_RUBRIQUE">
-                <h3>#TITRE</h3>
-                <p>#INTRODUCTION{50}</p>
-            </a>
-        </li>
-        </BOUCLE_MENU_COTE>
-    </ul>
+    #INCLURE{fond=inclure/menu, env, identifiant=rightnav}
 </section>
 
 

@@ -1,0 +1,31 @@
+<section id="intro">
+    <a href="#URL_SITE_SPIP" class="logo">
+        #LOGO_SITE_SPIP
+    </a>
+    <header>
+        <h2>#NOM_SITE_SPIP</h2>
+        <p>#DESCRIPTIF_SITE_SPIP</p>
+    </header>
+</section>
+
+<B_mm_rubrique>
+<section>
+   <h3><:meme_rubrique:></h3>
+    <div class="mini-posts">
+       <BOUCLE_mm_rubrique(ARTICLES){id_rubrique}{exclus}{0,10}{doublons}>
+        <article class="mini-post">
+           <header>
+            <h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+            <time class="published" datetime="#DATE">[(#DATE|affdate)]</time>
+            <BOUCLE_AUTEUR(AUTEURS){id_article}>
+            <a href="#URL_AUTEUR" class="author">
+               [(#LOGO_AUTEUR|supprimer_timestamp)]
+            </a>
+            </BOUCLE_AUTEUR>
+            </header>
+            <a href="#URL_ARTICLE" class="image">[(#LOGO_ARTICLE|image_reduire{350}|supprimer_timestamp)]</a>
+        </article>
+        </BOUCLE_mm_rubrique>
+    </div>
+</section>
+</B_mm_rubrique>

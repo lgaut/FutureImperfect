@@ -1,0 +1,32 @@
+<BOUCLE_BREVE(BREVES){id_breve}>
+<article class="post">
+    <header>
+        <div class="title">
+            <h2><a href="#URL_ARTICLE">#TITRE</a></h2>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="[(#DATE|date_iso)]">
+                 [(#DATE*|affdate)] 
+            </time>
+            
+               <BOUCLE_AUTEUR(AUTEURS){id_article}>
+                  <a href="#URL_AUTEUR" class="author">
+                   <span class="name">[(#NOM)]</span>
+                   [(#LOGO_AUTEUR)]
+                  </a>
+                </BOUCLE_AUTEUR> 
+        </div>
+    </header>
+       
+    [(#LOGO_BREVE|inserer_attribut{class, image featured})]
+    
+    <p>[(#TEXTE)]</p>
+
+    [<footer>
+      <h2><:info_notes:></h2>(#NOTES)
+    </footer>]
+
+    
+</article>
+
+</BOUCLE_BREVE>

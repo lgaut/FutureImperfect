@@ -1,6 +1,6 @@
 <B_articles>
 	        #ANCRE_PAGINATION
-                <BOUCLE_articles(ARTICLES){id_rubrique?} {!par date} {pagination #ENV{nb,5}}>
+                <BOUCLE_articles(ARTICLES){id_rubrique?} {!par date} {pagination #ENV{nb,4}}>
 	                #INCLURE{fond=inclure/article-resume,id_article}
 	            </BOUCLE_articles>
 	        #PAGINATION{precedent_suivant}

@@ -23,7 +23,7 @@
             </a>
             </BOUCLE_AUTEUR>
             </header>
-            <a href="#URl_ARTICLE" class="image">#LOGO_ARTICLE</a>
+            <a href="#URL_ARTICLE" class="image">[(#LOGO_ARTICLE|image_reduire{350})]</a>
         </article>
         </BOUCLE_hitparade>
     </div>
@@ -41,21 +41,10 @@
                     <time class="published" datetime="#DATE">[(#DATE|affdate)]</time>
                 </header>
                 <a href="#URL_ARTICLE" class="image">
-                    [(#LOGO_ARTICLE|image_recadre{64,64})]
+                    [(#LOGO_ARTICLE|image_recadre{200,0}|image_reduire{64,64})]
                 </a>
             </article>
         </li>
         </BOUCLE_hasard>
-    </ul>
-</section>
-
-
-<section class="blurb">
-    <h2>A propos</h2>
-    <p>#DESCRIPTIF_SITE_SPIP</p>
-    <ul class="actions">
-        <li>
-            <a href="#" class="button">En savoir plus</a>
-        </li>
     </ul>
 </section>

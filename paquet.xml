@@ -1,5 +1,5 @@
 <paquet
-	prefix="FutureImperfect4spip"
+	prefix="futureimperfect4spip"
 	categorie="squelette"
 	version="0.1"
 	etat="test"
@@ -12,10 +12,11 @@
 	<nom>FutureImperfect</nom>
 
 	<auteur>Got</auteur>
-  <auteur lien="http://html5up.net">html5up</auteur>
-  <licence lien="http://html5up.net/license">CC-By</licence>
+    <auteur lien="http://html5up.net">html5up</auteur>
+    <licence lien="http://html5up.net/license">CC-By</licence>
   
+    <!-- La dépendance à Zcore. -->
+    <necessite nom="Zcore" compatibilite="[2.3.0;]" />
 	<necessite nom="comments" compatibilite="[3.3.2;[" />
-	<necessite nom="Zcore" compatibilite="[2.5.0;[" />
 
 </paquet>
